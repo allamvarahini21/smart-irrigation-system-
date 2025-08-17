@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Registration - Smart Irrigation System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+     background-image: url('image4.jpg');
+      background-position: center;   /* centers the image */
+  height: 100vh;  /* makes body full viewport height */
+  width: 100%;
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #2b8a3e;
+    }
+    input, select {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .btn {
+      width: 95%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .register-btn {
+      background: #2b8a3e;
+      color: white;
+    }
+    .register-btn:hover {
+      background: #1f6b2c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Farmer Registration</h2>
+    <form id="registerForm">
+      <input type="text" id="fullname" placeholder="Full Name" required>
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="text" id="village" placeholder="Village" required>
+      <input type="text" id="crop" placeholder="Main Crop" required>
+      <input type="number" id="land" placeholder="Land Area (in acres)" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <button type="submit" class="btn register-btn">Register</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Collect farmer data
+      let farmer = {
+        fullname: document.getElementById("fullname").value,
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        village: document.getElementById("village").value,
+        crop: document.getElementById("crop").value,
+        land: document.getElementById("land").value,
+        phone: document.getElementById("phone").value
+      };
+
+      // Save in localStorage
+      localStorage.setItem("farmerData", JSON.stringify(farmer));
+
+      alert("✅ Registration Successful! Please login now.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

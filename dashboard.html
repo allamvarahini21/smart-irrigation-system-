@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Irrigation System - Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    background-image: url('image4.jpg');
+
+
+    }
+
+    header {
+      background: lightsalmon;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px; /* space between links */
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: #c8e6c9;
+      padding: 30px;
+      text-align: center;
+      border-radius: 8px;
+      margin: 20px;
+    }
+
+   .dashboard {
+  background: #ffffff;
+  margin: 20px auto;      
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 60%;             
+  text-align: center;     
+}
+
+    .moisture-bar {
+      width: 100%;
+      height: 25px;
+      background: #ddd;
+      border-radius: 10px;
+      margin: 10px 0;
+      overflow: hidden;
+    }
+
+    .moisture-fill {
+      height: 100%;
+      width: 65%;
+      background: #4caf50;
+      transition: width 0.5s ease;
+    }
+
+    .btn {
+      background: #2b8a3e;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn.off {
+      background: #d32f2f;
+    }
+
+    .tip-box {
+      background: #f9fbe7;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+
+    .weather {
+      background:skyblue;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    footer {
+      background: royalblue;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <h1>Smart Irrigation System</h1>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>Efficient Water Management for Smart Farming</h2>
+      <p>Monitor and control irrigation with real-time data and automation.</p>
+    </section>
+
+    <!-- Moisture Monitoring -->
+    <section class="dashboard">
+      <h2>Soil Moisture Monitoring</h2>
+
+      <div class="moisture-bar">
+        <div id="moistureFill" class="moisture-fill"></div>
+      </div>
+      <p>Moisture Level: <span id="moistureText">65%</span></p>
+
+      <button id="pumpBtn" class="btn off">Pump: OFF</button>
+      <label>
+        <input type="checkbox" id="autoMode"> Auto Mode
+      </label>
+
+      <p>Last Watered: <span id="lastWatered">--:--:--</span></p>
+
+      <canvas id="moistureChart" width="400" height="200"></canvas>
+
+      <div class="tip-box">
+        <h3>💡 Smart Tip</h3>
+        <p id="tipText">Water plants early in the morning.</p>
+      </div>
+    </section>
+
+    <!-- Weather Update Feature -->
+    <section class="weather">
+      <h2>Live Weather Update</h2>
+      <p id="weather-info">Fetching weather data...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Smart Irrigation System. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>
